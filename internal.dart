@@ -14,34 +14,23 @@ class StudyTracker extends StatefulWidget {
 }
 
 class _StudyTrackerState extends State<StudyTracker> {
-  int total = 5;
-  int completed = 0;
+  int total = 5, completed = 0;
   bool started = false;
-
-  TextEditingController controller =
-      TextEditingController(text: '5');
+  TextEditingController c = TextEditingController(text: '5');
 
   void startTracking() {
-    int? sessions = int.tryParse(controller.text);
+    int? n = int.tryParse(c.text);
 
-    if (sessions != null && sessions > 0) {
+    if (n != null && n > 0) {
       setState(() {
-        total = sessions;
+        total = n;
         completed = 0;
         started = true;
       });
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Enter a valid number')),
+        SnackBar(content: Text('Enter a valid positive number!')),
       );
-    }
-  }
-
-  void completeSession() {
-    if (completed < total) {
-      setState(() {
-        completed++;
-      });
     }
   }
 
@@ -50,13 +39,13 @@ class _StudyTrackerState extends State<StudyTracker> {
       total = 5;
       completed = 0;
       started = false;
-      controller.text = '5';
+      c.text = '5';
     });
   }
 
   @override
   void dispose() {
-    controller.dispose();
+    c.dispose();
     super.dispose();
   }
 
@@ -68,35 +57,23 @@ class _StudyTrackerState extends State<StudyTracker> {
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
       ),
-
       body: Center(
         child: Padding(
           padding: EdgeInsets.all(20),
-
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-
-              Icon(
-                Icons.menu_book,
-                size: 60,
-                color: Colors.blue,
-              ),
-
+              Icon(Icons.menu_book, size: 60, color: Colors.blue),
               SizedBox(height: 20),
 
-              Text(
-                'Set Your Study Goal',
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              Text('Set Your Study Goal',
+                  style: TextStyle(fontSize: 22,
+                      fontWeight: FontWeight.bold)),
 
               SizedBox(height: 15),
 
               TextField(
-                controller: controller,
+                controller: c,
                 keyboardType: TextInputType.number,
                 enabled: !started,
                 decoration: InputDecoration(
@@ -114,24 +91,21 @@ class _StudyTrackerState extends State<StudyTracker> {
                 ),
 
               if (started) ...[
-
-                Text('Completed Sessions: $completed'),
-
+                Text('Completed Sessions: $completed',
+                    style: TextStyle(fontSize: 18)),
                 SizedBox(height: 10),
 
-                Text('Remaining Sessions: ${total - completed}'),
-
+                Text('Remaining Sessions: ${total - completed}',
+                    style: TextStyle(fontSize: 18)),
                 SizedBox(height: 20),
 
                 ElevatedButton(
                   onPressed: completed < total
-                      ? completeSession
+                      ? () => setState(() => completed++)
                       : null,
-                  child: Text(
-                    completed < total
-                        ? 'Complete Session'
-                        : 'Goal Completed!',
-                  ),
+                  child: Text(completed < total
+                      ? 'Complete Session'
+                      : 'Goal Completed!'),
                 ),
 
                 SizedBox(height: 10),
