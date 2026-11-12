@@ -1,14 +1,11 @@
-db.students.insert({
-    rollno: 1,
-    name: "Ravi",
-    marks: 85
-});
 
+db.students.insert({ id: 1, name: "Ravi", age: 20 });
 db.students.find();
+db.students.find({ name: "Ravi" });
 
 db.students.update(
-    { rollno: 1 },
-    { $set: { marks: 95 } }
+   { name: "Ravi" },
+   { $set: { age: 21 } }
 );
 
-db.students.remove({ rollno: 1 });
+db.students.remove({ name: "Ravi" });
