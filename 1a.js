@@ -1,28 +1,26 @@
-const express = require("express");
-
+const express = require('express');
 const app = express();
-const port = 3000;
 
-// Basic route
-app.get("/", (request, response) => {
-  response.send("Welcome to the ExpressJS routing example.");
+app.get('/', (req, res) => {
+    res.send('Welcome to ExpressJS');
 });
 
-// Route parameter: http://localhost:3000/users/101
-app.get("/users/:id", (request, response) => {
-  response.json({ message: "Route parameter received", userId: request.params.id });
+// Route parameter
+app.get('/user/:id', (req, res) => {
+    res.send('User ID: ' + req.params.id);
 });
 
-// Query parameters: http://localhost:3000/search?name=Anu&course=MERN
-app.get("/search", (request, response) => {
-  response.json({ message: "Query parameters received", query: request.query });
+// Query parameter
+app.get('/search', (req, res) => {
+    res.send('Search name: ' + req.query.name);
 });
 
-// URL building example: http://localhost:3000/profile?name=Anu
-app.get("/profile", (request, response) => {
-  const name = request.query.name || "Student";
-  const userUrl = `${request.protocol}://${request.get("host")}/users/101`;
-  response.send(`Hello, ${name}. Generated user URL: ${userUrl}`);
+// URL building
+app.get('/build', (req, res) => {
+    const url = new URL('/user/101', 'http://localhost:3000');
+    res.send('Built URL: ' + url.href);
 });
 
-app.listen(port, () => console.log(`Open http://localhost:${port}`));
+app.listen(3000, () => {
+    console.log('Server running on port 3000');
+});
