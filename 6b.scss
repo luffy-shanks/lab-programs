@@ -1,15 +1,13 @@
-$card-color: #e8f4ff;
-$text-color: #123;
+$bg-color: lightblue;
+$title-color: darkblue;
 
-.course-card {
-  max-width: 360px;
-  margin: 40px auto;
-  padding: 24px;
-  border-radius: 12px;
-  background: $card-color;
-  color: $text-color;
-  font-family: Arial, sans-serif;
-  box-shadow: 0 3px 10px #0002;
+.card {
+    background-color: $bg-color;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
 
-  li { margin: 8px 0; }
+    h1 {
+        color: $title-color;
+    }
 }
