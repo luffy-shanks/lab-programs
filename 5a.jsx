@@ -1,13 +1,11 @@
+
 import React from 'react';
-import { createRoot } from 'react-dom/client';
 
 function App() {
-    return (
-        <div>
-            <h1>Hello World</h1>
-            <p>Welcome to ReactJS</p>
-        </div>
-    );
+  return React.createElement(
+    'div', null,
+    React.createElement('h1', null, 'Hello React'),
+    React.createElement('p', null, 'This is my first React program.')
+  );
 }
-
-createRoot(document.getElementById('root')).render(<App />);
+export default App;
