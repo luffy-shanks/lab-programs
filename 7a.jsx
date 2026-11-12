@@ -1,17 +1,19 @@
-import { useState } from "react";
+import React, { useState } from 'react';
+import { createRoot } from 'react-dom/client';
 
-export default function App() {
-  const [message, setMessage] = useState("Click the button to respond to an event.");
+function App() {
+    const [message, setMessage] = useState('Click the button');
 
-  function handleClick() {
-    setMessage("Button click event handled successfully!");
-  }
+    function handleClick() {
+        setMessage('Button clicked successfully!');
+    }
 
-  return (
-    <main>
-      <h1>React Event Handling</h1>
-      <button onClick={handleClick}>Click me</button>
-      <p>{message}</p>
-    </main>
-  );
+    return (
+        <div>
+            <h2>{message}</h2>
+            <button onClick={handleClick}>Click Me</button>
+        </div>
+    );
 }
+
+createRoot(document.getElementById('root')).render(<App />);
