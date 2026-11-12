@@ -1,8 +1,13 @@
-export default function App() {
-  return (
-    <main>
-      <h1>ReactJS HTML Rendering</h1>
-      <p>This HTML is rendered by a React component.</p>
-    </main>
-  );
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+
+function App() {
+    return (
+        <div>
+            <h1>Hello World</h1>
+            <p>Welcome to ReactJS</p>
+        </div>
+    );
 }
+
+createRoot(document.getElementById('root')).render(<App />);
