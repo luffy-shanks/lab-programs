@@ -1,15 +1,20 @@
-import { useState } from "react";
+import React, { useState } from 'react';
+import { createRoot } from 'react-dom/client';
 
-export default function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+function App() {
+    const [loggedIn, setLoggedIn] = useState(false);
 
-  return (
-    <main>
-      <h1>Conditional Rendering</h1>
-      <button onClick={() => setIsLoggedIn(!isLoggedIn)}>
-        {isLoggedIn ? "Log out" : "Log in"}
-      </button>
-      {isLoggedIn ? <p>Welcome, student!</p> : <p>Please log in to continue.</p>}
-    </main>
-  );
+    return (
+        <div>
+            <h2>
+                {loggedIn ? 'Welcome User' : 'Please Login'}
+            </h2>
+
+            <button onClick={() => setLoggedIn(!loggedIn)}>
+                {loggedIn ? 'Logout' : 'Login'}
+            </button>
+        </div>
+    );
 }
+
+createRoot(document.getElementById('root')).render(<App />);
