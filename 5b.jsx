@@ -1,11 +1,17 @@
-export default function App() {
-  const studentName = "Anu";
+import React from 'react';
+import { createRoot } from 'react-dom/client';
 
-  return (
-    <section>
-      <h1>JSX Markup Example</h1>
-      <p>Hello, {studentName}!</p>
-      <p>2 + 3 = {2 + 3}</p>
-    </section>
-  );
+function App() {
+    const name = 'Ravi';
+    const marks = 85;
+
+    return (
+        <div>
+            <h1>Student Details</h1>
+            <p>Name: {name}</p>
+            <p>Marks: {marks}</p>
+        </div>
+    );
 }
+
+createRoot(document.getElementById('root')).render(<App />);
