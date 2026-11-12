@@ -1,15 +1,15 @@
-import "./6b.css";
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import './style.css';
 
-const courses = ["ReactJS", "ExpressJS", "MongoDB"];
-
-export default function App() {
-  return (
-    <main className="course-card">
-      <h1>Course List</h1>
-      <p>Data displayed with CSS styling.</p>
-      <ul>
-        {courses.map((course) => <li key={course}>{course}</li>)}
-      </ul>
-    </main>
-  );
+function App() {
+    return (
+        <div className="card">
+            <h1>Student Details</h1>
+            <p>Name: Ravi</p>
+            <p>Course: CSE</p>
+        </div>
+    );
 }
+
+createRoot(document.getElementById('root')).render(<App />);
