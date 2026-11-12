@@ -1,17 +1,11 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-
+app.jsx
 function App() {
-    const name = 'Ravi';
-    const marks = 85;
-
-    return (
-        <div>
-            <h1>Student Details</h1>
-            <p>Name: {name}</p>
-            <p>Marks: {marks}</p>
-        </div>
-    );
+  const name = 'Ravi';
+  return (
+    <div>
+      <h1>Welcome, {name}!</h1>
+      <p>This page is written using JSX.</p>
+    </div>
+  );
 }
-
-createRoot(document.getElementById('root')).render(<App />);
+export default App;
