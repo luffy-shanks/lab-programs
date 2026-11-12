@@ -1,23 +1,27 @@
-// Run in mongosh after selecting the database.
-use collegeDB;
-
 db.students.insertMany([
-  { name: "Anu", course: "MERN", marks: 85 },
-  { name: "Bala", course: "MERN", marks: 92 },
-  { name: "Chitra", course: "MEAN", marks: 78 }
-]);
+    { rollno: 1, name: "Ravi", marks: 85 },
+    { rollno: 2, name: "Sita", marks: 95 },
+    { rollno: 3, name: "Arun", marks: 75 },
+    { rollno: 4, name: "Priya", marks: 90 }
+])
 
-// Find documents.
-db.students.find({ course: "MERN" });
+db.students.find()
+db.students.find().limit(2)
+db.students.find({ marks: { $gt: 80 } })
 
-// Limit results and sort by marks in descending order.
-db.students.find().sort({ marks: -1 }).limit(2);
+db.students.find().limit(2)
 
-// Create an index on course.
-db.students.createIndex({ course: 1 });
 
-// Aggregate: average marks for each course.
+db.students.find().sort({ marks: -1 })
+
+db.students.createIndex({ name: 1 })
+
 db.students.aggregate([
-  { $group: { _id: "$course", averageMarks: { $avg: "$marks" }, totalStudents: { $sum: 1 } } },
-  { $sort: { averageMarks: -1 } }
-]);
+    {
+        $group: {
+            _id: null,
+            averageMarks: { $avg: "$marks" }
+        }
+    }
+])
+
