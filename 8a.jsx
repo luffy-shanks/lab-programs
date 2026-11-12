@@ -1,12 +1,21 @@
-const students = ["Anu", "Bala", "Chitra"];
+import React from 'react';
+import { createRoot } from 'react-dom/client';
 
-export default function App() {
-  return (
-    <main>
-      <h1>Student List</h1>
-      <ul>
-        {students.map((student, index) => <li key={student}>{index + 1}. {student}</li>)}
-      </ul>
-    </main>
-  );
+function App() {
+    const students = ['Ravi', 'Sita', 'Arun', 'Priya'];
+
+    return (
+        <div>
+            <h2>Student List</h2>
+            <ul>
+                {students.map((student, index) => (
+                    <li key={student}>
+                        {student}
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
 }
+
+createRoot(document.getElementById('root')).render(<App />);
