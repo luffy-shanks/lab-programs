@@ -1,22 +1,18 @@
-import React, { useState } from 'react';
-import { createRoot } from 'react-dom/client';
+app.jsx
+import { useState } from 'react';
 
 function Student(props) {
-    const [marks, setMarks] = useState(80);
-
-    return (
-        <div>
-            <h2>Name: {props.name}</h2>
-            <p>Marks: {marks}</p>
-            <button onClick={() => setMarks(marks + 5)}>
-                Increase Marks
-            </button>
-        </div>
-    );
+  const [count, setCount] = useState(0);
+  return (
+    <div>
+      <h2>Student: {props.name}</h2>
+      <p>Button clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>Click Me</button>
+    </div>
+  );
 }
 
 function App() {
-    return <Student name="Ravi" />;
+  return <Student name="Ravi" />;
 }
-
-createRoot(document.getElementById('root')).render(<App />);
+export default App;
