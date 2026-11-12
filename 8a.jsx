@@ -1,21 +1,15 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
 
 function App() {
-    const students = ['Ravi', 'Sita', 'Arun', 'Priya'];
-
-    return (
-        <div>
-            <h2>Student List</h2>
-            <ul>
-                {students.map((student, index) => (
-                    <li key={student}>
-                        {student}
-                    </li>
-                ))}
-            </ul>
-        </div>
-    );
+  const fruits = ['Apple', 'Mango', 'Orange', 'Banana'];
+  return (
+    <div>
+      <h2>Fruit List</h2>
+      <ul>
+        {fruits.map((fruit, index) => (
+          <li key={index}>{fruit}</li>
+        ))}
+      </ul>
+    </div>
+  );
 }
-
-createRoot(document.getElementById('root')).render(<App />);
+export default App;
