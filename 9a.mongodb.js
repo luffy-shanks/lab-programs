@@ -1,11 +1,15 @@
-// Run in mongosh. The database is created when data is stored in it.
-use collegeDB;
+use college
 
-db.createCollection("students");
-db.students.insertOne({ name: "Anu", course: "MERN" });
+db.createCollection("students")
 
-// Drop a collection.
-// db.students.drop();
+db.students.insertOne({
+    rollno: 1,
+    name: "Ravi",
+    marks: 85
+})
 
-// Drop the currently selected database.
-// db.dropDatabase();
+show collections
+
+db.students.drop()
+
+db.dropDatabase()
