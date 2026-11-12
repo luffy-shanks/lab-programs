@@ -1,18 +1,22 @@
-import { useState } from "react";
+import React, { useState } from 'react';
+import { createRoot } from 'react-dom/client';
 
-function Student({ name, course }) {
-  return <p>{name} studies {course}.</p>;
+function Student(props) {
+    const [marks, setMarks] = useState(80);
+
+    return (
+        <div>
+            <h2>Name: {props.name}</h2>
+            <p>Marks: {marks}</p>
+            <button onClick={() => setMarks(marks + 5)}>
+                Increase Marks
+            </button>
+        </div>
+    );
 }
 
-export default function App() {
-  const [count, setCount] = useState(0);
-
-  return (
-    <main>
-      <h1>Props and State</h1>
-      <Student name="Anu" course="ReactJS" />
-      <p>Button clicked: {count} times</p>
-      <button onClick={() => setCount(count + 1)}>Click me</button>
-    </main>
-  );
+function App() {
+    return <Student name="Ravi" />;
 }
+
+createRoot(document.getElementById('root')).render(<App />);
