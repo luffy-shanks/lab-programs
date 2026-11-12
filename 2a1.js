@@ -1,17 +1,15 @@
-const express = require("express");
-const path = require("path");
-
+const express = require('express');
 const app = express();
-const port = 3000;
 
-app.set("view engine", "ejs");
-app.set("views", path.join(__dirname));
+app.set('view engine', 'ejs');
 
-app.get("/", (request, response) => {
-  response.render("2a2", {
-    title: "Student Details",
-    student: { name: "Anu", course: "MERN Stack", semester: 5 }
-  });
+app.get('/', (req, res) => {
+    res.render('home', {
+        name: 'Ravi',
+        course: 'CSE'
+    });
 });
 
-app.listen(port, () => console.log(`Open http://localhost:${port}`));
+app.listen(3000, () => {
+    console.log('Server running on port 3000');
+});
