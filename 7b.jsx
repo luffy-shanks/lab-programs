@@ -1,20 +1,15 @@
-import React, { useState } from 'react';
-import { createRoot } from 'react-dom/client';
+
+import { useState } from 'react';
 
 function App() {
-    const [loggedIn, setLoggedIn] = useState(false);
-
-    return (
-        <div>
-            <h2>
-                {loggedIn ? 'Welcome User' : 'Please Login'}
-            </h2>
-
-            <button onClick={() => setLoggedIn(!loggedIn)}>
-                {loggedIn ? 'Logout' : 'Login'}
-            </button>
-        </div>
-    );
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  return (
+    <div>
+      {isLoggedIn ? <h2>Welcome User</h2> : <h2>Please Login</h2>}
+      <button onClick={() => setIsLoggedIn(!isLoggedIn)}>
+        {isLoggedIn ? 'Logout' : 'Login'}
+      </button>
+    </div>
+  );
 }
-
-createRoot(document.getElementById('root')).render(<App />);
+export default App;
