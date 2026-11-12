@@ -1,12 +1,10 @@
-.course-card {
-  max-width: 360px;
-  margin: 40px auto;
-  padding: 24px;
-  border-radius: 12px;
-  background: #e8f4ff;
-  color: #123;
-  font-family: Arial, sans-serif;
-  box-shadow: 0 3px 10px #0002;
+.card {
+    background-color: lightblue;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
 }
 
-.course-card li { margin: 8px 0; }
+h1 {
+    color: darkblue;
+}
