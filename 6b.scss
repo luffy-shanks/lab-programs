@@ -1,0 +1,15 @@
+$card-color: #e8f4ff;
+$text-color: #123;
+
+.course-card {
+  max-width: 360px;
+  margin: 40px auto;
+  padding: 24px;
+  border-radius: 12px;
+  background: $card-color;
+  color: $text-color;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 3px 10px #0002;
+
+  li { margin: 8px 0; }
+}
