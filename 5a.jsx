@@ -1,18 +1,26 @@
 app.jsx
-import React from 'react';
+import React from 'react'; 
+import { createRoot } from 'react-dom/ client';
 
 function App() {
-  return React.createElement(
-    'div', null,
-    React.createElement('h1', null, 'Hello React'),
-    React.createElement('p', null, 'This is my first React program.')
+  return(
+    <div>
+      <h1>Welcome to ReactJS</h1>
+      <p>This is my first React application.</p>
+    </div>
   );
 }
-export default App;
-main.jsx
+createRoot(document.getElementById('root')) .render(<App />);
+index.html
 
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import App from './App.jsx';
+<!DOCTYPE html>
+<html>
+<head>
+  <title>React App</title>
+</head>
+<body>
+  <div id="root"></div> <script type="module" src="/src/App.jsx"></script>
 
-createRoot(document.getElementById('root')).render(<App />);
+</body>
+
+</html>
